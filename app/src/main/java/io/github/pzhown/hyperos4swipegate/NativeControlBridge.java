@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
  *
  * There is intentionally no localhost socket. The app sends a nonce-bound query to the module code
  * running inside SystemUI. SystemUI carries the configuration through Xiaomi's existing protected
- * fsgesture broadcast into the HyOS launcher native receiver; the native bridge replies through the
+ * fsgesture broadcast into the HyperOS launcher native receiver; the native bridge replies through the
  * HyperOS broadcast runtime and SystemUI relays the authenticated response back here.
  */
 public final class NativeControlBridge {
@@ -45,7 +45,7 @@ public final class NativeControlBridge {
             long receivedAtElapsedMs
     ) {
         static Snapshot unknown() {
-            return new Snapshot("UNKNOWN", "", "等待 HyOS Runtime Hook 状态", 0L);
+            return new Snapshot("UNKNOWN", "", "等待 HyperOS Runtime Hook 状态", 0L);
         }
 
         public boolean fresh() {
@@ -200,7 +200,7 @@ public final class NativeControlBridge {
                                 ConfigBridge.DEFAULT_LOG_LEVEL));
         if (level <= ConfigBridge.LOG_LEVEL_OFF) return "日志记录已关闭。";
         if (!lastError.isBlank()) {
-            return "HyOS Runtime 通道异常：" + lastError
+            return "HyperOS Runtime 通道异常：" + lastError
                     + "\nlastStage=" + channelStage + " · " + channelDetail();
         }
         Snapshot effective = snapshot();
@@ -211,8 +211,8 @@ public final class NativeControlBridge {
         if ("FAILED".equals(effective.state()) && !effective.detail().isBlank()) {
             return effective.detail();
         }
-        if (latestSnapshot.fresh()) return "HyOS Runtime 已连接，暂无新的 Native 日志。";
-        return "等待 SystemUI → HyOS Runtime 状态回包…\n"
+        if (latestSnapshot.fresh()) return "HyperOS Runtime 已连接，暂无新的 Native 日志。";
+        return "等待 SystemUI → HyperOS Runtime 状态回包…\n"
                 + "stage=" + channelStage + " · " + channelDetail();
     }
 
