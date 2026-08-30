@@ -28,8 +28,8 @@ com.android.systemui
 
 两者职责不同：
 
-- `com.miui.home`：承载 Launcher / HyOS native 目标与手势 Hook。
-- `com.android.systemui`：承载 `SystemUiBridgeModule`，负责 App 与 HyOS Runtime 之间的实时配置和状态中继。
+- `com.miui.home`：承载 Launcher / HyperOS native 目标与手势 Hook。
+- `com.android.systemui`：承载 `SystemUiBridgeModule`，负责 App 与 HyperOS Runtime 之间的实时配置和状态中继。
 
 因此 **系统桌面与系统界面缺一不可**。`com.android.systemui` 不是为了诊断而附加的可选作用域，而是当前控制链路的一部分。
 
@@ -123,7 +123,7 @@ SwipeGate App
    ↓ NativeControlBridge private query
 SystemUiBridgeModule in com.android.systemui
    ↓ Xiaomi protected com.android.systemui.fsgesture carrier
-HyOS / Launcher native runtime
+HyperOS / Launcher native runtime
    ↓ native control receiver / gate
 Gesture Hook
    ↓ authenticated native reply
@@ -155,7 +155,7 @@ RemotePreferences (group: swipegate)
 Launcher cache
 ```
 
-但对 HyperOS 4 HyOS native 主路径而言，**SystemUI 中继是实时控制与状态的关键链路**，不能只依赖 RemotePreferences 判断功能完整性。
+但对 HyperOS 4 HyperOS native 主路径而言，**SystemUI 中继是实时控制与状态的关键链路**，不能只依赖 RemotePreferences 判断功能完整性。
 
 旧版本留下的系统属性：
 
@@ -208,7 +208,7 @@ LSPosed API 102
 - 系统桌面作用域
 - 系统界面作用域
 - Launcher 完整版本号
-- HyOS Runtime
+- HyperOS Runtime
 - Native Hook / profile / detail
 
 这些激活证据仍不能替代 native Pattern 健康检查。Native Hook 是否成功安装、是否遇到解析冲突，以实时 Hook status 与 `HOOK_SCAN` / `HOOK_HEALTH` 为准。
