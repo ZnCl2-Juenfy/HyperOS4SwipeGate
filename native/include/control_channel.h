@@ -4,7 +4,7 @@
 extern "C" {
 #endif
 
-// Live configuration received through SystemUI -> Xiaomi fsgesture -> HyOS Runtime. A negative
+// Live configuration received through SystemUI -> Xiaomi fsgesture -> HyperOS Runtime. A negative
 // value means no authenticated runtime value has arrived yet and callers should fall back to the
 // persisted launcher cache / legacy property path.
 int swipegate_control_threshold_dp();
@@ -15,7 +15,7 @@ int swipegate_control_haptic_enabled();
 // the user-facing App log level; App log retention remains controlled by log_level.
 void swipegate_control_on_log(int priority, const char *text);
 
-// Ensure the process-local HyOS Runtime bridge installer is active. There is no socket and no
+// Ensure the process-local HyperOS Runtime bridge installer is active. There is no socket and no
 // network transport; this function only drives the native broadcast bridge lifecycle.
 void swipegate_control_sync_if_due();
 
