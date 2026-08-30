@@ -149,7 +149,7 @@ int gLogLevel = -1;
 int gHapticEnabled = -1;
 HookState gHookState = kHookWaiting;
 std::string gPattern;
-std::string gDetail = "Native 模块已加载，等待 HyOS Runtime / Hook";
+std::string gDetail = "Native 模块已加载，等待 HyperOS Runtime / Hook";
 std::string gAppLog;
 
 class SpinGuard {
@@ -771,7 +771,7 @@ void *installerMain(void *) {
                                 &g_swipegate_original_broadcast_send) == 0
                         && g_swipegate_original_broadcast_send != nullptr) {
                     gSendCaptureHookInstalled.store(true, std::memory_order_release);
-                    bridgeLog(ANDROID_LOG_INFO, "HyOS private broadcast runtime capture installed");
+                    bridgeLog(ANDROID_LOG_INFO, "HyperOS private broadcast runtime capture installed");
                 }
             }
             if (!gRStringVtableCaptureHookInstalled.load(std::memory_order_acquire)) {
@@ -796,7 +796,7 @@ void *installerMain(void *) {
                                 &backup) == 0 && backup != nullptr) {
                     gOriginalReceiver.store(backup, std::memory_order_release);
                     gReceiverHookInstalled.store(true, std::memory_order_release);
-                    bridgeLog(ANDROID_LOG_INFO, "HyOS fsgesture native receiver bridge installed");
+                    bridgeLog(ANDROID_LOG_INFO, "HyperOS fsgesture native receiver bridge installed");
                 }
             }
             if (gSendCaptureHookInstalled.load(std::memory_order_acquire)
@@ -809,7 +809,7 @@ void *installerMain(void *) {
         usleep(kProbeIntervalMs * 1000);
     }
     bridgeLog(ANDROID_LOG_ERROR,
-            "HyOS Runtime bridge install timed out; gesture hook remains fail-independent");
+            "HyperOS Runtime bridge install timed out; gesture hook remains fail-independent");
     gInstallerStarted.store(false, std::memory_order_release);
     return nullptr;
 }
@@ -825,7 +825,7 @@ void startInstallerIfLauncher() {
     pthread_t thread{};
     if (pthread_create(&thread, nullptr, installerMain, nullptr) != 0) {
         gInstallerStarted.store(false, std::memory_order_release);
-        bridgeLog(ANDROID_LOG_ERROR, "Failed to start HyOS Runtime bridge installer");
+        bridgeLog(ANDROID_LOG_ERROR, "Failed to start HyperOS Runtime bridge installer");
         return;
     }
     pthread_detach(thread);
