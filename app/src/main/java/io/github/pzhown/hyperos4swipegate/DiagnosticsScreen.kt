@@ -147,7 +147,7 @@ internal fun DiagnosticsScreen(
                             drawConnector = true,
                         )
                         DiagnosticPipelineNode(
-                            label = "HyOS Runtime",
+                            label = "HyperOS Runtime",
                             state = if (current.hyosRuntimeDetected) "已加载" else "未检测到",
                             detail = when {
                                 current.hyosRuntimeDetected && current.hyosSpawnerPresent -> "hyos_spawner 可用"
@@ -199,7 +199,7 @@ internal fun DiagnosticsScreen(
                     if (environmentExpanded) {
                         DiagnosticValueRow("Android", "${Build.VERSION.RELEASE} · SDK ${Build.VERSION.SDK_INT}")
                         DiagnosticValueRow("框架", current.framework.ifBlank { "未知" })
-                        DiagnosticValueRow("HyOS spawner", if (current.hyosSpawnerPresent) "存在" else "不存在")
+                        DiagnosticValueRow("HyperOS spawner", if (current.hyosSpawnerPresent) "存在" else "不存在")
                     }
                 }
             }
