@@ -13,7 +13,7 @@ android {
         applicationId = "io.github.pzhown.hyperos4swipegate"
         minSdk = 33
         targetSdk = 37
-        versionCode = 1
+        versionCode = 100
         versionName = "1.0.0-ZnCl2"
 
         ndk {
