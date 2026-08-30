@@ -147,7 +147,7 @@ internal fun DiagnosticsScreen(
                             drawConnector = true,
                         )
                         DiagnosticPipelineNode(
-                            label = "HyOS Runtime",
+                            label = "HyperOS Runtime",
                             state = if (current.hyosRuntimeDetected) "已加载" else "未检测到",
                             detail = when {
                                 current.hyosRuntimeDetected && current.hyosSpawnerPresent -> "/system_ext/bin/hyos_spawner 可用"
