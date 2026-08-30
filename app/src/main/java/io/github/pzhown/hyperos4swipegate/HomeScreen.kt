@@ -319,28 +319,28 @@ internal fun HomeScreen(
                 }
                 ArrowPreference(
                     title = "GitHub 项目",
-                    summary = "PzHown/HyperOS4SwipeGate",
+                    summary = "ZnCl2-Juenfy/HyperOS4SwipeGate",
                     onClick = {
                         context.startActivity(
                             Intent(
                                 Intent.ACTION_VIEW,
-                                Uri.parse("https://github.com/PzHown/HyperOS4SwipeGate"),
+                                Uri.parse("https://github.com/ZnCl2-Juenfy/HyperOS4SwipeGate"),
                             ),
                         )
                     },
                 )
                 ArrowPreference(
                     title = "开发者",
-                    summary = "PzHown · GitHub",
+                    summary = "ZnCl2-Juenfy · GitHub",
                     onClick = {
-                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/PzHown")))
+                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/ZnCl2-Juenfy")))
                     },
                 )
                 ArrowPreference(
                     title = "酷安",
-                    summary = "PzHown",
+                    summary = "ZnCl2-Juenfy",
                     onClick = {
-                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.coolapk.com/u/464418")))
+                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.coolapk.com/u/31537720")))
                     },
                 )
             }
