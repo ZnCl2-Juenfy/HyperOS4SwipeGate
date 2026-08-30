@@ -37,13 +37,13 @@ SwipeGate 可以提高这项手势的触发距离：**未达到设定距离时�
 | Android | Android 17 / API 37 |
 | 架构 | arm64-v8a |
 | LSPosed | Modern API 102 · versionCode ≥ 7846 |
-| Zygisk Next | 1.5.0+（HyOS Runtime） |
+| Zygisk Next | 1.5.0+（HyperOS Runtime） |
 | 必需作用域 | **系统桌面** `com.miui.home` + **系统界面** `com.android.systemui` |
 | Root | 不需要 |
 
-> LSPosed versionCode ≥ 7846、Zygisk Next 1.5.0+ 与两个必需作用域缺一不可。主页会以无 Root 方式检测 LSPosed 版本、系统桌面作用域、系统界面作用域和实际 HyOS Runtime 能力。
+> LSPosed versionCode ≥ 7846、Zygisk Next 1.5.0+ 与两个必需作用域缺一不可。主页会以无 Root 方式检测 LSPosed 版本、系统桌面作用域、系统界面作用域和实际 HyperOS Runtime 能力。
 >
-> `com.android.systemui` 不是可选作用域。SwipeGate 的 App ↔ HyOS Runtime 配置与状态通道需要模块代码运行在 SystemUI 中，再通过小米现有的 `com.android.systemui.fsgesture` 通道中继到 Launcher native runtime。
+> `com.android.systemui` 不是可选作用域。SwipeGate 的 App ↔ HyperOS Runtime 配置与状态通道需要模块代码运行在 SystemUI 中，再通过小米现有的 `com.android.systemui.fsgesture` 通道中继到 Launcher native runtime。
 >
 > Launcher 8.0+ 为目标兼容范围。模块不会依赖固定 Hook offset，而是扫描 Launcher native 可执行代码并寻找已验证的唯一代码特征。仅地址变化通常无需重新适配；如果目标函数本身的代码特征发生变化，则会停止安装 Hook 并保持原厂行为。
 
@@ -57,7 +57,7 @@ SwipeGate 可以提高这项手势的触发距离：**未达到设定距离时�
 4. 在手机管家中将侧边栏呼出方式设为「侧滑停顿呼出」。
 5. 打开 SwipeGate，在「主页」中调整触发距离。
 
-实时配置与状态主链路为 `App → SystemUI → HyOS Runtime / Launcher native`，不需要授予 Root 权限。RemotePreferences 仍保留兼容镜像，但不是 HyperOS 4 native 运行时的唯一配置通道。
+实时配置与状态主链路为 `App → SystemUI → HyperOS Runtime / Launcher native`，不需要授予 Root 权限。RemotePreferences 仍保留兼容镜像，但不是 HyperOS 4 native 运行时的唯一配置通道。
 
 ## 触发距离
 
@@ -88,7 +88,7 @@ SwipeGate 可以提高这项手势的触发距离：**未达到设定距离时�
 
 模块通过 LSPosed Modern API 102 `native_init` 进入 HyperOS 4 Launcher 的 native/Rust 进程，扫描 `libapp_launcher.so` 的可执行段，在唯一代码特征匹配后才安装 Hook。
 
-运行时控制链路为 `App → SystemUiBridgeModule（com.android.systemui）→ 小米 fsgesture 广播 → Launcher / HyOS native runtime`。系统桌面与系统界面因此都是必需作用域；RemotePreferences / Launcher cache 继续作为兼容与持久化辅助通道，全程无需 `su`。
+运行时控制链路为 `App → SystemUiBridgeModule（com.android.systemui）→ 小米 fsgesture 广播 → Launcher / HyperOS native runtime`。系统桌面与系统界面因此都是必需作用域；RemotePreferences / Launcher cache 继续作为兼容与持久化辅助通道，全程无需 `su`。
 
 逆向目标、Pattern 扫描、Hook 策略、安全校验与构建说明见 [docs/TECHNICAL.md](docs/TECHNICAL.md)。
 
