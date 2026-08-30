@@ -427,7 +427,7 @@ private fun collectHomeStatusSnapshot(context: Context): HomeStatusSnapshot {
         return status(HomeHookState.Error, "LSPosed 版本不满足要求。")
     }
     if (!runtime.hyosSpawnerPresent()) {
-        return status(HomeHookState.Error, "未检测到 HyOS Runtime。")
+        return status(HomeHookState.Error, "未检测到 HyperOS Runtime。")
     }
     if (!runtime.launcherInScope() && !runtime.systemUiInScope()) {
         return status(HomeHookState.Inactive, "模块作用域不完整：请勾选系统桌面和系统界面。")
@@ -439,7 +439,7 @@ private fun collectHomeStatusSnapshot(context: Context): HomeStatusSnapshot {
         return status(HomeHookState.Inactive, "系统界面未加入模块作用域。")
     }
     if (!runtime.zygiskNextSupported()) {
-        return status(HomeHookState.Error, "当前运行环境不支持 HyOS Runtime。")
+        return status(HomeHookState.Error, "当前运行环境不支持 HyperOS Runtime。")
     }
     if (!service.launcherLoaded()) {
         return status(HomeHookState.Inactive, "系统桌面尚未加载模块。")
