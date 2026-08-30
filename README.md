@@ -6,9 +6,9 @@
 
 **延后 HyperOS 4 侧滑停顿触发，不改变返回手势。**
 
-[![Build APK](https://github.com/PzHown/HyperOS4SwipeGate/actions/workflows/build.yml/badge.svg)](https://github.com/PzHown/HyperOS4SwipeGate/actions/workflows/build.yml)
-[![Release](https://img.shields.io/github/v/release/PzHown/HyperOS4SwipeGate?include_prereleases&label=release)](https://github.com/PzHown/HyperOS4SwipeGate/releases)
-[![Downloads](https://img.shields.io/github/downloads/PzHown/HyperOS4SwipeGate/total?label=downloads)](https://github.com/PzHown/HyperOS4SwipeGate/releases)
+[![Build APK](https://github.com/ZnCl2-Juenfy/HyperOS4SwipeGate/actions/workflows/build.yml/badge.svg)](https://github.com/ZnCl2-Juenfy/HyperOS4SwipeGate/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/PzHown/HyperOS4SwipeGate?include_prereleases&label=release)](https://github.com/ZnCl2-Juenfy/HyperOS4SwipeGate/releases)
+[![Downloads](https://img.shields.io/github/downloads/PzHown/HyperOS4SwipeGate/total?label=downloads)](https://github.com/ZnCl2-Juenfy/HyperOS4SwipeGate/releases)
 ![Android 17](https://img.shields.io/badge/Android-17-3DDC84?logo=android&logoColor=white)
 ![LSPosed API 102](https://img.shields.io/badge/LSPosed-API%20102-blue)
 [![License](https://img.shields.io/github/license/PzHown/HyperOS4SwipeGate)](LICENSE)
@@ -23,7 +23,7 @@ SwipeGate 可以提高这项手势的触发距离：**未达到设定距离时�
 
 ## 下载
 
-前往 [Releases](https://github.com/PzHown/HyperOS4SwipeGate/releases) 获取最新构建。
+前往 [Releases](https://github.com/ZnCl2-Juenfy/HyperOS4SwipeGate/releases) 获取最新构建。
 
 当前提供自动构建版本，适配范围请以本页「当前支持」为准。
 
